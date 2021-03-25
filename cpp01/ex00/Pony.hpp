@@ -13,7 +13,7 @@ class Pony
 
 	public:
 		Pony(std::string name, std::string size, std::string color, int age);
-		~Pony();
+		~Pony(void);
 };
 
 #endif
