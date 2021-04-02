@@ -31,6 +31,11 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 	<< " Or had existed in the first place!" << std::endl;
 }
 
+FragTrap::FragTrap(const FragTrap& src)
+{
+	*this = src;
+}
+
 FragTrap& FragTrap::operator=(const FragTrap& src)
 {
 	std::cout << "Copy operator called:" << std::endl;

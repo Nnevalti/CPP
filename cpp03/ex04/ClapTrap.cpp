@@ -15,6 +15,11 @@ ClapTrap::ClapTrap(std::string name) : _name(name)
 	std::cout << "CL4P-TP: New ClapTrap build !" << std::endl;
 }
 
+ClapTrap::ClapTrap(const ClapTrap& src)
+{
+	*this = src;
+}
+
 ClapTrap& ClapTrap::operator=(const ClapTrap& src)
 {
 	std::cout << "Copy operator called:" << std::endl;

@@ -22,6 +22,11 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 	std::cout << this->_prefix << " " << this->_name << ": Hahahahaha! I'm alive!" << std::endl;
 }
 
+ScavTrap::ScavTrap(const ScavTrap& src)
+{
+	*this = src;
+}
+
 ScavTrap& ScavTrap::operator=(const ScavTrap& src)
 {
 	std::cout << "Copy operator called:" << std::endl;

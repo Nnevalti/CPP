@@ -29,6 +29,11 @@ FragTrap::FragTrap(std::string name) : _name(name)
 	this->_clapInTheBoxAttackDamage = 75;
 }
 
+FragTrap::FragTrap(const FragTrap& src)
+{
+	*this = src;
+}
+
 FragTrap& FragTrap::operator=(const FragTrap& src)
 {
 	std::cout << "Copy operator called:" << std::endl;

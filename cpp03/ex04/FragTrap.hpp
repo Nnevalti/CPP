@@ -12,6 +12,7 @@ class FragTrap : virtual public ClapTrap
 		FragTrap();
 		~FragTrap();
 		FragTrap(std::string name);
+		FragTrap(const FragTrap& src);
 		// Operator
 		FragTrap& operator=(const FragTrap& src);
 		// Getters and setters

@@ -20,6 +20,11 @@ ScavTrap::ScavTrap(std::string name) : _name(name)
 	this->_armorDamageReduction = 3;
 }
 
+ScavTrap::ScavTrap(const ScavTrap& src)
+{
+	*this = src;
+}
+
 ScavTrap& ScavTrap::operator=(const ScavTrap& src)
 {
 	std::cout << "Copy operator called:" << std::endl;

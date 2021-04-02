@@ -25,6 +25,11 @@ NinjaTrap::NinjaTrap(std::string name) : ClapTrap(name)
 	<< std::endl;
 }
 
+NinjaTrap::NinjaTrap(const NinjaTrap& src)
+{
+	*this = src;
+}
+
 NinjaTrap& NinjaTrap::operator=(const NinjaTrap& src)
 {
 	std::cout << "Copy operator called:" << std::endl;

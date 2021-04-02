@@ -10,6 +10,11 @@ Victim::~Victim()
 	std::cout << "The victim " << _name << " died for no apparent reasons!" << std::endl;
 }
 
+Victim::Victim(const Victim& src)
+{
+	*this = src;
+}
+
 Victim& Victim::operator=(const Victim& src)
 {
 	this->_name = src._name;

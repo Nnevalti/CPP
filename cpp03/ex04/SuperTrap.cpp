@@ -27,6 +27,11 @@ SuperTrap::SuperTrap(std::string name) : FragTrap(name), NinjaTrap(name)
 
 }
 
+SuperTrap::SuperTrap(const SuperTrap& src)
+{
+	*this = src;
+}
+
 SuperTrap& SuperTrap::operator=(const SuperTrap& src)
 {
 	std::cout << "Copy operator called:" << std::endl;

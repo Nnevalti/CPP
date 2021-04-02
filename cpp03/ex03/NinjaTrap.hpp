@@ -12,6 +12,7 @@ class NinjaTrap : virtual public ClapTrap
 		NinjaTrap();
 		~NinjaTrap();
 		NinjaTrap(std::string name);
+		NinjaTrap(const NinjaTrap& src);
 		// Operator
 		NinjaTrap& operator=(const NinjaTrap& src);
 		// Classical attack

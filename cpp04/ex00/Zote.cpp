@@ -10,6 +10,11 @@ Zote::~Zote()
 	std::cout << "Go on, cur! Scurry away! Lest I humiliate you further!" << std::endl;
 }
 
+Zote::Zote(const Zote& src) : Victim(src)
+{
+	*this = src;
+}
+
 Zote& Zote::operator=(const Zote& src)
 {
 	this->_name = src._name;

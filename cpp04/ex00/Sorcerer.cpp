@@ -12,6 +12,11 @@ Sorcerer::~Sorcerer()
 	<< ", is dead. Consequences will never be the same!" << std::endl;
 }
 
+Sorcerer::Sorcerer(const Sorcerer& src)
+{
+	*this = src;
+}
+
 Sorcerer& Sorcerer::operator=(const Sorcerer& src)
 {
 	this->_name = src._name;

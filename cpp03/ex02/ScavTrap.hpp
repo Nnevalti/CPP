@@ -11,6 +11,7 @@ class ScavTrap : virtual public ClapTrap
 		ScavTrap();
 		~ScavTrap();
 		ScavTrap(std::string name);
+		ScavTrap(const ScavTrap& src);
 		// Operator
 		ScavTrap& operator=(const ScavTrap& src);
 		// Attack

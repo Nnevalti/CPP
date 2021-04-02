@@ -10,6 +10,7 @@ class ClapTrap
 		ClapTrap();
 		~ClapTrap();
 		ClapTrap(std::string name);
+		ClapTrap(const ClapTrap& src);
 		ClapTrap& operator=(const ClapTrap& src);
 		//Getters and setters
 		std::string		getName();

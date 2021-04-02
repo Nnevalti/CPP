@@ -12,6 +12,7 @@ class SuperTrap : virtual public FragTrap, virtual public NinjaTrap
 		SuperTrap();
 		~SuperTrap();
 		SuperTrap(std::string name);
+		SuperTrap(const SuperTrap& src);
 		// Operator
 		SuperTrap& operator=(const SuperTrap& src);
 		// Classical attack

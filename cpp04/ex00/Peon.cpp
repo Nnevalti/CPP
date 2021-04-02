@@ -10,6 +10,11 @@ Peon::~Peon()
 	std::cout << "Bleuark..." << std::endl;
 }
 
+Peon::Peon(const Peon& src) : Victim(src)
+{
+	*this = src;
+}
+
 Peon& Peon::operator=(const Peon& src)
 {
 	this->_name = src._name;

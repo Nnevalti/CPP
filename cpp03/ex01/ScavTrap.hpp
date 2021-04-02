@@ -10,6 +10,7 @@ class ScavTrap
 		ScavTrap();
 		~ScavTrap();
 		ScavTrap(std::string name);
+		ScavTrap(const ScavTrap& src);
 		// Operator
 		ScavTrap& operator=(const ScavTrap& src);
 		// Getters and setters
