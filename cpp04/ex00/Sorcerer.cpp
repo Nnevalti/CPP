@@ -32,6 +32,7 @@ void Sorcerer::polymorph(const Victim& victim)
 {
 	victim.getPolymorphed();
 }
+
 std::ostream& operator<<(std::ostream& os, const Sorcerer& rhs)
 {
 	os << "I am " << rhs.getName()
