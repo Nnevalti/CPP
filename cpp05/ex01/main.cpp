@@ -7,14 +7,19 @@ int main()
 	Bureaucrat* Az = new Bureaucrat("Az", 149);
 	Form* form1 = new Form("49/3", 20, 20);
 	Form* form2 = new Form("Weed legalization", 150, 150);
-
+	Form* form1cpy = form1; // Copy accces au meme data
+	Form* form2cpy = new Form(*form2); // Copy differente (autres adresses)
 	// No error
 	try
 	{
+		std::cout << "Bureaucrat:" << std::endl;
 		std::cout << *Bob << *Az;
+		std::cout << "Form:" << std::endl;
 		std::cout << *form1 << *form2;
-		form1->signForm(*Bob);
-		form1->signForm(*Az);
+		std::cout << "Form copy:" << std::endl;
+		std::cout << *form1cpy << *form2cpy;
+		form1->signForm(*Bob); // fail
+		form1->signForm(*Az); // success
 	}
 	catch (std::exception & e)
 	{
@@ -25,8 +30,14 @@ int main()
 	{
 		Bob->upgrade();
 		Az->downgrade();
-		std::cout << *Bob;
-		std::cout << *Az;
+		form2->signForm(*Az); // success
+		std::cout << "Bureaucrat:" << std::endl;
+		std::cout << *Bob << *Az;
+		std::cout << "Form:" << std::endl;
+		std::cout << *form1 << *form2;
+		std::cout << "Form copy:" << std::endl;
+		std::cout << *form1cpy << *form2cpy;
+
 	}
 	catch (std::exception & e)
 	{
