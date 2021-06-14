@@ -62,6 +62,20 @@ void				Bureaucrat::upgrade()
 
 }
 
+void Bureaucrat::signForm(Form& f)
+{
+	try
+	{
+		f.beSigned(*this);
+		std::cout << this->_name << " signed " << f.getName() << std::endl;
+	}
+	catch(std::exception& e)
+	{
+		std::cout << this->_name << " can't sign " << f.getName() << " because " << e.what() << std::endl;
+	}
+	return ;
+}
+
 // Exceptions classes
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
