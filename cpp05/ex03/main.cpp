@@ -3,6 +3,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "Intern.hpp"
 
 int main()
 {
@@ -50,18 +51,28 @@ int main()
 		std::cout << e.what() << "exception";
 	}
 
-	// try
-	// {
-	// 	Bob->upgrade();
-	// 	Az->downgrade();
-	// 	std::cout << "Bureaucrat:" << std::endl;
-	// 	std::cout << *Bob << *Az;
-	// }
-	// catch (std::exception & e)
-	// {
-	// 	std::cout << e.what() << std::endl;
-	// }
+	Intern  someRandomIntern;
+	Form*   rrf;
 
+	rrf = someRandomIntern.makeForm("residential pardon", "Bender");
+
+	if (rrf)
+	{
+		try
+		{
+			Bob->signForm(*rrf);
+			Bob->executeForm(*rrf);
+		}
+		catch (std::exception & e)
+		{
+			std::cout << e.what() << std::endl;
+		}
+	}
+
+	delete shrub;
+	delete president;
+	delete robot;
+	delete rrf;
 	delete Bob;
 	delete Az;
 }
