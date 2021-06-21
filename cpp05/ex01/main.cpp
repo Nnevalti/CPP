@@ -7,8 +7,8 @@ int main()
 	Bureaucrat* Az = new Bureaucrat("Az", 149);
 	Form* form1 = new Form("49/3", 20, 20);
 	Form* form2 = new Form("Weed legalization", 150, 150);
-	Form* form1cpy = form1; // Copy accces au meme data
-	Form* form2cpy = new Form(*form2); // Copy differente (autres adresses)
+	Form* form1cpy = form1;
+	Form* form2cpy = new Form(*form2);
 	// No error
 	try
 	{
@@ -85,6 +85,9 @@ int main()
 		std::cout << e.what() << std::endl;
 	}
 
+	delete form1;
+	delete form2;
+	delete form2cpy;
 	delete Bob;
 	delete Az;
 }

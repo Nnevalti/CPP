@@ -61,7 +61,10 @@ int main()
 	// {
 	// 	std::cout << e.what() << std::endl;
 	// }
-
+	
+	delete shrub;
+	delete president;
+	delete robot;
 	delete Bob;
 	delete Az;
 }
