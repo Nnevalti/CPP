@@ -15,7 +15,7 @@ class Fixed
 
 	private:
 		int					_n;
-		static const int	fracBits;
+		static const int	fracBits = 8;
 };
 
 #endif

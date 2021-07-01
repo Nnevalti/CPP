@@ -20,7 +20,7 @@ class Fixed
 
 	private:
 		int					_n;
-		static const int	_fracBits;
+		static const int	_fracBits = 8;
 };
 
 std::ostream& operator<<(std::ostream& os, const Fixed& src);

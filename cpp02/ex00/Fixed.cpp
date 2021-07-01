@@ -1,6 +1,6 @@
 # include "Fixed.hpp"
 
-const int fracBits = 8;
+// const int fracBits = 8;
 
 Fixed::Fixed()
 {
