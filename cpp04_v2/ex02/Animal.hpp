@@ -5,6 +5,8 @@
 
 class Animal
 {
+	private:
+		Animal();
 	public:
 		virtual ~Animal();
 		Animal(const Animal &src);
@@ -13,7 +15,6 @@ class Animal
 		virtual void makeSound() const;
 	protected:
 		std::string _type;
-		Animal();
 };
 
 #endif
