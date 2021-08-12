@@ -53,6 +53,7 @@ int main()
 	try
 	{
 		Bureaucrat* test = new Bureaucrat("Test", 0);
+		std::cout << *test;
 	}
 	catch (std::exception& e)
 	{
@@ -62,6 +63,7 @@ int main()
 	try
 	{
 		Bureaucrat* test = new Bureaucrat("Test", 151);
+		std::cout << *test;
 	}
 	catch (std::exception& e)
 	{

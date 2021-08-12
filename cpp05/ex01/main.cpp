@@ -18,8 +18,8 @@ int main()
 		std::cout << *form1 << *form2;
 		std::cout << "Form copy:" << std::endl;
 		std::cout << *form1cpy << *form2cpy;
-		form1->signForm(*Bob); // fail
-		form1->signForm(*Az); // success
+		Bob->signForm(*form1); // fail
+		Az->signForm(*form1); // success
 	}
 	catch (std::exception & e)
 	{
@@ -30,7 +30,7 @@ int main()
 	{
 		Bob->upgrade();
 		Az->downgrade();
-		form2->signForm(*Az); // success
+		Az->signForm(*form2); // success
 		std::cout << "Bureaucrat:" << std::endl;
 		std::cout << *Bob << *Az;
 		std::cout << "Form:" << std::endl;
@@ -70,6 +70,7 @@ int main()
 	try
 	{
 		Bureaucrat* test = new Bureaucrat("Test", 0);
+		std::cout << *test;
 	}
 	catch (std::exception& e)
 	{
@@ -79,6 +80,7 @@ int main()
 	try
 	{
 		Bureaucrat* test = new Bureaucrat("Test", 151);
+		std::cout << *test;
 	}
 	catch (std::exception& e)
 	{

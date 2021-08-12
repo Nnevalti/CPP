@@ -61,26 +61,12 @@ int Form::getGradeToExecute() const
 // Method
 void Form::beSigned(const Bureaucrat& b)
 {
-	if (b.getGrade() >= this->_gradeToSign)
+	if (b.getGrade() <= this->_gradeToSign)
 	{
 		this->_signed = true;
 	}
 	else
 		throw Form::GradeTooLowException();
-	return ;
-}
-
-void Form::signForm(const Bureaucrat& b)
-{
-	try
-	{
-		this->beSigned(b);
-		std::cout << b.getName() <<" signed " << this->getName() << std::endl;
-	}
-	catch(std::exception& e)
-	{
-		std::cout << b.getName() << " can't sign " << this->getName() << " because " << e.what() << std::endl;
-	}
 	return ;
 }
 

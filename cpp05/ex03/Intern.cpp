@@ -21,6 +21,7 @@ Intern::Intern(const Intern & src)
 
 Intern &Intern::operator=(const Intern & src)
 {
+	(void)src;
 	return (*this);
 }
 

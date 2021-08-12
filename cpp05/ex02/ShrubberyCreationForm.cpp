@@ -29,7 +29,8 @@ void ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 	std::ofstream output(this->_target + "_shruberry");
 	if (output.fail())
 	{
-
+		output.close();
+		return ;
 	}
 	else
 	{
