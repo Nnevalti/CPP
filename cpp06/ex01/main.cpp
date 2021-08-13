@@ -8,7 +8,7 @@ struct Data
 	std::string s2;
 };
 
-void *serialize(void)
+Data *randData(void)
 {
 	srand(time(NULL));
 	std::string const str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -28,19 +28,37 @@ void *serialize(void)
 		data->s2 += str[rand() % str.length()];
 		usleep(50);
 	}
-	return (reinterpret_cast<void *>(data));
+	return (data);
+}
+uintptr_t *serialize(Data* ptr)
+{
+	return (reinterpret_cast<uintptr_t *>(ptr));
 }
 
-Data *deserialize(void *raw)
+Data *deserialize(uintptr_t *raw)
 {
 	return (reinterpret_cast<Data *>(raw));
+}
+void displayData(Data *data)
+{
+	std::cout << data->s1 << ", " << data->n << ", " << data->s2 << std::endl;
+
 }
 
 int main(void)
 {
-	void *test = serialize();
-	Data *data = deserialize(test);
-	std::cout << data->s1 << ", " << data->n << ", " << data->s2 << std::endl;
+	Data *data = randData();
+	std::cout << "Before serialization :" << std::endl;
+	displayData(data);
+
+	uintptr_t *test = serialize(data);
+	std::cout << std::endl << "After serialization :" << std::endl;
+	std::cout << *test << std::endl;
+
+	Data *deserializeData = deserialize(test);
+	std::cout << std::endl << "After Deserialization :" << std::endl;
+	displayData(deserializeData);
+
 	delete data;
 	return 0;
 }

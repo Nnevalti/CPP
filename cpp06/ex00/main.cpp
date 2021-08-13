@@ -2,6 +2,8 @@
 #include <iomanip>
 #include <float.h>
 #include <math.h>
+#include <string.h>
+#include <limits>
 
 int main(int ac, char **av)
 {
@@ -29,7 +31,9 @@ int main(int ac, char **av)
 	}
 
 	// char conversion
-	if (isinf(d) || isnan(d) || d < CHAR_MIN || d > CHAR_MAX)
+	if (isinf(d) || isnan(d)
+		|| d < std::numeric_limits<char>::min()
+		|| d > std::numeric_limits<char>::max())
 		std::cout << "char: Impossible" << std::endl;
 	else if (isprint(static_cast<char>(d)))
 		std::cout << "char: " << static_cast<char>(d) << std::endl;
@@ -37,16 +41,18 @@ int main(int ac, char **av)
 		std::cout << "char: Non displayable" << std::endl;
 
 	// int conversion
-	if (isinf(d) || isnan(d) || d < INT_MIN || d > INT_MAX)
+	if (isinf(d) || isnan(d)
+		|| d < std::numeric_limits<int>::min()
+		|| d > std::numeric_limits<int>::max())
 		std::cout << "int: Impossible" << std::endl;
 	else
 		std::cout << "int: " << static_cast<int>(d) << std::endl;
 
 	// float conversion
-	if (d < FLT_MIN || d > FLT_MAX)
-		std::cout << "float: Impossible" << std::endl;
-	else if (isinf(d))
+	if (isinf(d))
 		std::cout << "float: inff" << std::endl;
+	else if (d < std::numeric_limits<float>::min() || d > std::numeric_limits<float>::max())
+		std::cout << "float: Impossible" << std::endl;
 	else if (isnan(d))
 		std::cout << "float: nanf" << std::endl;
 	else

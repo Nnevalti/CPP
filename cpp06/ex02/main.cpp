@@ -18,9 +18,21 @@ Base *generate(void)
 	srand(time(NULL));
 	int r = rand() % 3;
 
-	if (r == 0) return (new A());
-	else if (r == 1) return (new B());
-	else return (new C());
+	if (r == 0)
+	{
+		std::cout << "Created a A class object" << std::endl;
+		return (new A());
+	}
+	else if (r == 1)
+	{
+		std::cout << "Created a B class object" << std::endl;
+		return (new B());
+	}
+	else
+	{
+		std::cout << "Created a C class object" << std::endl;
+		return (new C());
+	}
 }
 
 void identify_from_pointer(Base * p)
