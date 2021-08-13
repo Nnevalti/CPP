@@ -2,7 +2,7 @@ template <typename T>
 class Array
 {
 	public:
-		Array(): _array(NULL), _size(0){}
+		Array(): _array(new T[0]), _size(0){}
 		Array(unsigned int size): _array(new T[size]()), _size(size){}
 		~Array()
 		{
