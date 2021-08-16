@@ -1,22 +1,6 @@
 #include "MutantStack.hpp"
 #include <iostream>
 
-// int main()
-// {
-// 	MutantStack<int> m;
-// 	m.push(42);
-// 	m.push(21);
-// 	m.push(2);
-// 	m.push(10);
-// 	m.push(89);
-// 	std::cout << m.size() << std::endl;
-// 	for (MutantStack<int>::iterator it = m.begin(); it != m.end(); it++)
-// 	{
-// 		std::cout << *it << std::endl;
-// 	}
-// 	return 0;
-// }
-
 int main(void)
 {
 	MutantStack<int>    mstack;
@@ -36,8 +20,11 @@ int main(void)
 	mstack.push(42);
 	std::cout << "Top: " << mstack.top() << std::endl;
 	mstack.push(0);
+
+	std::cout << "Iterator test:" << std::endl;
 	MutantStack<int>::iterator it = mstack.begin();
 	MutantStack<int>::iterator ite = mstack.end();
+
 	++it;
 	--it;
 	while (it != ite)
@@ -45,6 +32,18 @@ int main(void)
 		std::cout << *it << std::endl;
 		++it;
 	}
-	std::stack<int> s(mstack);
+
+	std::cout << "Reverse Iterator test:" << std::endl;
+
+	MutantStack<int>::reverse_iterator rit = mstack.rbegin();
+	MutantStack<int>::reverse_iterator rite = mstack.rend();
+
+	++rit;
+	--rit;
+
+	while(rit != rite){
+		std::cout << *rit << std::endl;
+		++rit;
+	}
 	return 0;
 }

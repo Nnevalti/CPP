@@ -41,10 +41,12 @@ void Span::createRange(int min, int max)
 	}
 }
 
-int Span::shortestSpan()
+long Span::shortestSpan()
 {
-	int minSpan = INT_MAX;
-	int span;
+	if (this->_s.size() <= 1)
+		throw CantSpan();
+	long minSpan = std::numeric_limits<int>::max();
+	long span;
 	std::set<int>::iterator it;
 	std::set<int>::iterator previous;
 
@@ -54,17 +56,19 @@ int Span::shortestSpan()
 		{
 			span = *it - *previous;
 			if (span < minSpan)
-			minSpan = span;
+				minSpan = span;
 		}
 		previous = it;
 	}
 	return (minSpan);
 }
 
-int Span::longestSpan()
+long Span::longestSpan()
 {
-	int Min = *this->_s.begin();
-	int Max = *this->_s.rbegin();
+	if (this->_s.size() <= 1)
+		throw CantSpan();
+	long Min = *this->_s.begin();
+	long Max = *this->_s.rbegin();
 
 	return (Max - Min);
 }
@@ -79,5 +83,10 @@ void Span::print(void)
 
 const char* Span::StorageLimit::what() const throw()
 {
-	return ("Maximum numbers storage capacity reached!");
+	return ("Maximum numbers storage capacity reached !");
+}
+
+const char* Span::CantSpan::what() const throw()
+{
+	return ("Not enough value to span !");
 }

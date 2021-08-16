@@ -3,6 +3,8 @@
 
 # include <set>
 # include <iostream>
+#include <limits>
+#include <algorithm>
 
 class Span
 {
@@ -15,12 +17,17 @@ class Span
 		void addNumber(int n);
 		void createRange(int min, int max);
 
-		int shortestSpan();
-		int longestSpan();
+		long shortestSpan();
+		long longestSpan();
 
 		void print(void);
 
 		class StorageLimit : public std::exception
+		{
+			virtual const char* what() const throw();
+		};
+
+		class CantSpan : public std::exception
 		{
 			virtual const char* what() const throw();
 		};
